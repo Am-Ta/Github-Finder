@@ -6,6 +6,11 @@ module.exports = {
   },
   mode: "development",
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
   }
 };
