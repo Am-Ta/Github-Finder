@@ -8,6 +8,11 @@ module.exports = {
     path: __dirname + "/dist"
   },
   mode: "development",
+  devServer: {
+    contentBase: __dirname + "/dist",
+    index: "index.html",
+    port: 9000
+  },
   module: {
     rules: [
       {
