@@ -1,4 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -21,8 +23,16 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "styles.[contenthash].css"
+    }),
+    new HtmlWebpackPlugin({
+      title: "Github Finder",
+      meta: {
+        viewport: "width=device-width, initial-scale=1"
+      },
+      template: "./src/index.html"
     })
   ]
 };
