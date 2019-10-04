@@ -11,7 +11,8 @@ module.exports = {
   devServer: {
     contentBase: __dirname + "/dist",
     index: "index.html",
-    port: 9000
+    port: 9000,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -22,7 +23,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: "babel-loader"
       },
       {
         test: /\.(jpg|png|jpeg|svg|gif)$/,
