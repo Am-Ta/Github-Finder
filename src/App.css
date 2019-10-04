@@ -1,0 +1,55 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+}
+
+/* Variables */
+:root {
+  --blue: #3498db;
+  --green: #2ecc71;
+  --red: #e74c3c;
+  --yellow: #f1c40f;
+  --gray: #ecf0f1;
+  --black: #373d3f;
+}
+
+/* Body */
+body {
+  font-family: "ubuntu";
+  color: var(--black);
+}
+
+/* Navigation bar */
+.nav {
+  display: flex;
+  background-color: var(--blue);
+  list-style: none;
+}
+
+.nav .nav__item {
+  margin: 1em;
+}
+
+.nav__item .nav__link {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--gray);
+}
+
+.nav__item .nav__link:hover {
+  text-decoration: underline;
+}
+
+/* Container */
+.container {
+  max-width: 90%;
+  margin: auto;
+}
+
+@media screen and (min-width: 40em) {
+  .container {
+    max-width: 65%;
+  }
+}
