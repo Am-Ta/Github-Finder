@@ -6,20 +6,25 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
 
+import { Provider } from "react-redux";
+import store from "./store";
+
 import "./App.css";
 
 const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <div className='container'>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/about' component={About} />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <div className='container'>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/about' component={About} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
 };
 
