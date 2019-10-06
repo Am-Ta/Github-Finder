@@ -1,4 +1,9 @@
-import { SEARCH_USER, USER_ERROR, SET_LOADING } from "./../actions/types";
+import {
+  SEARCH_USER,
+  USER_ERROR,
+  SET_LOADING,
+  CLEAR_USERS
+} from "./../actions/types";
 
 const initialState = {
   users: null,
@@ -13,6 +18,11 @@ export default (state = initialState, action) => {
         ...state,
         users: action.payload,
         loading: false
+      };
+    case CLEAR_USERS:
+      return {
+        ...state,
+        users: null
       };
     case USER_ERROR:
       return {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { searchUser } from "../../actions/userAction";
+import { searchUser, clearUsers } from "../../actions/userAction";
 
-const Search = ({ searchUser }) => {
+const Search = ({ user: { users }, searchUser, clearUsers }) => {
   const [text, setText] = useState("");
 
   // handle change in searchbox
@@ -14,6 +14,12 @@ const Search = ({ searchUser }) => {
     e.preventDefault();
 
     searchUser(text);
+    setText("");
+  };
+
+  // Handle click for clear users
+  const handleClick = () => {
+    clearUsers();
   };
 
   return (
@@ -35,15 +41,28 @@ const Search = ({ searchUser }) => {
           className='btn btn_block btn__primary'
         />
       </div>
+      {users !== null && users.length > 0 && (
+        <div className='form__group'>
+          <button onClick={handleClick} className='btn btn_block btn__danger'>
+            Clear
+          </button>
+        </div>
+      )}
     </form>
   );
 };
 
 Search.propTypes = {
-  searchUser: PropTypes.func.isRequired
+  searchUser: PropTypes.func.isRequired,
+  clearUsers: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 };
 
+const mapStateToProps = state => ({
+  user: state.user
+});
+
 export default connect(
-  null,
-  { searchUser }
+  mapStateToProps,
+  { searchUser, clearUsers }
 )(Search);

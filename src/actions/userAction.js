@@ -1,4 +1,4 @@
-import { SEARCH_USER, USER_ERROR, SET_LOADING } from "./types";
+import { SEARCH_USER, USER_ERROR, SET_LOADING, CLEAR_USERS } from "./types";
 
 // Search user
 export const searchUser = text => async dispatch => {
@@ -19,6 +19,10 @@ export const searchUser = text => async dispatch => {
     });
   }
 };
+
+export const clearUsers = () => ({
+  type: CLEAR_USERS
+});
 
 // Set loading to true
 const setLoading = () => ({
