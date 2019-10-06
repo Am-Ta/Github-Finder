@@ -1,9 +1,11 @@
 import React from "react";
 
+import Search from "../layout/Search";
+
 const Home = () => {
   return (
     <div>
-      <h1>Hello World</h1>
+      <Search />
     </div>
   );
 };

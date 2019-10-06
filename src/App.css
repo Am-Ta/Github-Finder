@@ -5,6 +5,24 @@
   padding: 0;
 }
 
+input,
+button,
+a {
+  outline: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
 /* Variables */
 :root {
   --blue: #3498db;
@@ -46,6 +64,49 @@ body {
 .container {
   max-width: 90%;
   margin: auto;
+}
+
+/* Form */
+.form .form__group {
+  margin: 1em 0;
+}
+
+.form .form__item {
+  width: 100%;
+  padding: 1em 0.5em;
+  border: 2px solid var(--gray);
+  transition: 0.3s border-color;
+}
+
+.form .form__item:hover,
+.form .form__item:focus {
+  border-color: var(--blue);
+}
+
+/* Btn */
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.8em;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.btn.btn_block {
+  display: block;
+  width: 100%;
+}
+
+.btn.btn__primary {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.btn.btn__primary:hover {
+  background-color: var(--blue);
+  color: var(--gray);
 }
 
 @media screen and (min-width: 40em) {
