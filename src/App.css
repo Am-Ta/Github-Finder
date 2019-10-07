@@ -163,6 +163,18 @@ body {
   padding: 0.5em;
 }
 
+/* Alerts */
+.alert {
+  padding: 0.5em;
+  margin-top: 1em;
+  font-size: 0.8em;
+}
+
+.alert.alert_danger {
+  background-color: rgb(var(--red));
+  color: rgb(var(--gray));
+}
+
 @media screen and (min-width: 40em) {
   .container {
     max-width: 65%;

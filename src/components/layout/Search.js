@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { searchUser, clearUsers } from "../../actions/userAction";
+import { setAlert } from "../../actions/alertAction";
 
-const Search = ({ user: { users }, searchUser, clearUsers }) => {
+const Search = ({ user: { users }, searchUser, clearUsers, setAlert }) => {
   const [text, setText] = useState("");
 
   // handle change in searchbox
@@ -12,9 +13,12 @@ const Search = ({ user: { users }, searchUser, clearUsers }) => {
   // handle submit search
   const handleSubmit = e => {
     e.preventDefault();
-
-    searchUser(text);
-    setText("");
+    if (!text) {
+      setAlert("Please enter a name", "danger");
+    } else {
+      searchUser(text);
+      setText("");
+    }
   };
 
   // Handle click for clear users
@@ -55,6 +59,7 @@ const Search = ({ user: { users }, searchUser, clearUsers }) => {
 Search.propTypes = {
   searchUser: PropTypes.func.isRequired,
   clearUsers: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired
 };
 
@@ -64,5 +69,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { searchUser, clearUsers }
+  { searchUser, clearUsers, setAlert }
 )(Search);
