@@ -1,3 +1,4 @@
+const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -5,12 +6,12 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
-    path: __dirname + "/dist"
+    path: path.join(__dirname, "dist"),
+    publicPath: "/"
   },
   mode: "development",
   devServer: {
-    contentBase: __dirname + "/dist",
-    index: "index.html",
+    contentBase: path.join(__dirname, "dist"),
     port: 9000,
     historyApiFallback: true
   },
