@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
-import { getUser, removeUser, getUserRepos } from "../../actions/userAction";
+import { getUser, removeUser, getUserRepos } from "../../actions/gitAction";
 
 const User = ({
   match,
-  user: { user, repos },
+  git: { user, repos },
   getUser,
   removeUser,
   getUserRepos
@@ -119,13 +119,13 @@ const User = ({
 
 User.propTypes = {
   match: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
+  git: PropTypes.object.isRequired,
   getUser: PropTypes.func.isRequired,
   removeUser: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  git: state.git
 });
 
 export default connect(

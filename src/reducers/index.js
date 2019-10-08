@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import userReducer from "./userReducer";
+import gitReducer from "./gitReducer";
 import alertReducer from "./alertReducer";
 
 export default combineReducers({
-  user: userReducer,
+  git: gitReducer,
   alert: alertReducer
 });

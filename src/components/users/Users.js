@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import UserItem from "./UserItem";
 
-const Users = ({ user: { users, loading } }) => {
+const Users = ({ git: { users, loading } }) => {
   return (
     <div className='users'>
       {!loading &&
@@ -15,11 +15,11 @@ const Users = ({ user: { users, loading } }) => {
 };
 
 Users.propTypes = {
-  user: PropTypes.object.isRequired
+  git: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  git: state.git
 });
 
 export default connect(
