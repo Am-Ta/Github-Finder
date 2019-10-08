@@ -11,7 +11,7 @@ const UserItem = ({ user }) => {
       </div>
       <p className='users__text'>{login}</p>
       <div className='users__btn'>
-        <Link to='#' className='btn btn__success'>
+        <Link to={`/user/${login}`} className='btn btn__success'>
           More
         </Link>
       </div>

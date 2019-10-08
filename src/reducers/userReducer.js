@@ -2,11 +2,16 @@ import {
   SEARCH_USER,
   USER_ERROR,
   SET_LOADING,
-  CLEAR_USERS
+  CLEAR_USERS,
+  GET_USER,
+  REMOVE_USER,
+  GET_REPOS
 } from "./../actions/types";
 
 const initialState = {
   users: null,
+  repos: null,
+  user: {},
   error: null,
   loading: false
 };
@@ -23,6 +28,23 @@ export default (state = initialState, action) => {
       return {
         ...state,
         users: null
+      };
+    case GET_USER:
+      return {
+        ...state,
+        user: action.payload,
+        loading: false
+      };
+    case REMOVE_USER:
+      return {
+        ...state,
+        user: {}
+      };
+    case GET_REPOS:
+      return {
+        ...state,
+        repos: action.payload,
+        loading: false
       };
     case USER_ERROR:
       return {
