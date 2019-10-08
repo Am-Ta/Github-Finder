@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { searchUser, clearUsers } from "../../actions/userAction";
+import { searchUser, clearUsers } from "../../actions/gitAction";
 import { setAlert } from "../../actions/alertAction";
 
-const Search = ({ user: { users }, searchUser, clearUsers, setAlert }) => {
+const Search = ({ git: { users }, searchUser, clearUsers, setAlert }) => {
   const [text, setText] = useState("");
 
   // handle change in searchbox
@@ -60,11 +60,11 @@ Search.propTypes = {
   searchUser: PropTypes.func.isRequired,
   clearUsers: PropTypes.func.isRequired,
   setAlert: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  git: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  git: state.git
 });
 
 export default connect(
